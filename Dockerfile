@@ -60,7 +60,7 @@ RUN apt-get update && apt-get install -y unzip wget gcc make postgresql-server-d
     && unzip zhparser.zip
 
 RUN cd scws-1.2.3 && ./configure --prefix=/usr/local/lib/scws-1.2.3 && make && make install
-RUN cd zhparser && SCWS_HOME=/usr/local/lib/scws-1.2.3 make && make install
+RUN cd zhparser-master && SCWS_HOME=/usr/local/lib/scws-1.2.3 make && make install
 
 RUN apt-get remove -y unzip wget gcc make postgresql-server-dev-$PG_MAJOR
 
