@@ -54,9 +54,10 @@ VOLUME /var/lib/postgresql/data
 
 #full seach
 RUN apt-get update && apt-get install -y unzip gcc make postgresql-server-dev-$PG_MAJOR \
-    && wget -q -O - http://www.xunsearch.com/scws/down/scws-1.2.3.tar.bz2 | tar xjf - \
- 	&& wget https://github.com/amutu/zhparser/archive/master.zip -O zhparser.zip \
-	&& unzip zhparser.zip
+    && wget http://www.xunsearch.com/scws/down/scws-1.2.3.tar.bz2 \
+    && tar xvjf scws-1.2.3.tar.bz2 \
+    && wget https://github.com/amutu/zhparser/archive/master.zip -O zhparser.zip \
+    && unzip zhparser.zip
 
 RUN cd scws-1.2.3 && ./configure --prefix=/usr/local/lib/scws-1.2.3 && make && make install
 RUN cd zhparser && SCWS_HOME=/usr/local/lib/scws-1.2.3 make && make install
