@@ -19,8 +19,8 @@ for DB in template_postgis "$POSTGRES_DB"; do
 		CREATE EXTENSION postgis_topology;
 		CREATE EXTENSION fuzzystrmatch;
 		CREATE EXTENSION postgis_tiger_geocoder;
-        CREATE EXTENSION zhparser;
-        CREATE TEXT SEARCH CONFIGURATION chinese (PARSER = zhparser);
-        ALTER TEXT SEARCH CONFIGURATION chinese ADD MAPPING FOR n,v,a,i,e,l WITH simple;
+		CREATE EXTENSION zhparser;
+		CREATE TEXT SEARCH CONFIGURATION chinese (PARSER = zhparser);
+		ALTER TEXT SEARCH CONFIGURATION chinese ADD MAPPING FOR n,v,a,i,e,l WITH simple;
 EOSQL
 done

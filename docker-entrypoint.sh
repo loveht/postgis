@@ -1,4 +1,3 @@
-
 #!/bin/bash
 set -e
 
@@ -33,6 +32,7 @@ if [ "$1" = 'postgres' ]; then
 				         Docker's default configuration, this is
 				         effectively any other container on the same
 				         system.
+
 				         Use "-e POSTGRES_PASSWORD=password" to set
 				         it in "docker run".
 				****************************************************
