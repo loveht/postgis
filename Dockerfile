@@ -53,7 +53,7 @@ ENV PGDATA /var/lib/postgresql/data
 VOLUME /var/lib/postgresql/data
 
 #full seach
-RUN apt-get update && apt-get install -y unzip wget gcc make postgresql-server-dev-9.5 \
+RUN apt-get update && apt-get install -y unzip wget gcc make postgresql-server-dev-$PG_MAJOR \
     && wget http://www.xunsearch.com/scws/down/scws-1.2.3.tar.bz2 \
     && tar xvjf scws-1.2.3.tar.bz2 \
     && wget https://github.com/amutu/zhparser/archive/master.zip -O zhparser.zip \
@@ -62,7 +62,7 @@ RUN apt-get update && apt-get install -y unzip wget gcc make postgresql-server-d
 RUN cd scws-1.2.3 && ./configure --prefix=/usr/local/lib/scws-1.2.3 && make && make install
 RUN cd zhparser-master && SCWS_HOME=/usr/local/lib/scws-1.2.3 make && make install
 
-RUN apt-get remove -y unzip wget gcc make postgresql-server-dev-9.5
+RUN apt-get remove -y unzip wget gcc make postgresql-server-dev-$PG_MAJOR
 
 #postgis 
 ENV POSTGIS_MAJOR 2.2
